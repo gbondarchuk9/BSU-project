@@ -1,0 +1,11 @@
+commit 92360a5848a6c7303bcdf6c0d894a47a3d2578c4
+Author: kulesh0v <vladkool13@gmail.com>
+Date:   Fri Feb 15 12:05:29 2019 +0300
+
+    add task1/status.txt
+
+commit f69ea1eeb97bf05af6e3c756de963674caf8d53f
+Author: kulesh0v <vladkool13@gmail.com>
+Date:   Fri Feb 15 12:00:44 2019 +0300
+
+    add .gitignore
