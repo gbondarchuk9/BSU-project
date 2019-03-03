@@ -1,0 +1,245 @@
+
+body{
+    font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
+    color: gray;
+}
+
+.date{
+    position: absolute;
+    font-size: 15px;
+    right: 48px;
+    top: 4px;
+}
+.funcButton{
+    position: absolute;
+    right: 4px;
+    top: 10px;
+    border: 0px;
+    background-color: white;
+}
+.funcButton:active{
+    background-color: darkgray;    
+}
+.searchButton{
+    background-color: white;
+    border: 0px;
+    position: absolute;
+    right: 0px;
+}
+.searchButton:active{
+    background-color: darkgray;
+}
+.author{
+    position: absolute;
+    margin: 8px 25px;
+    font-size: 24px;
+    border: 0px;
+    padding-bottom: 12px;
+    padding-left: 6px;
+    border-style: solid;
+    border-color: darkgray;
+}
+.photo{
+    margin: auto;
+    width: 80%;
+    align-content: center;
+    display: table-cell;  
+}
+.description{
+    margin-left: 30px;
+    font-size: 24px;
+    margin-bottom: 12px;
+    width: 80%;
+    margin: auto;
+}
+
+.likeButton{
+    position: absolute;
+    right: 24px;
+    text-align: center;
+    font-size: 27px;
+    line-height: 1;
+    border: 0px;
+    background-color: white;
+    font-family: "Candara Light";
+}
+.likeButton:active{
+    border: 2px;
+    border-style: solid;
+    padding: 6px;
+    border-color: darkgray;
+}
+@media screen and (min-device-width: 1530px){
+    .searchForm{
+        position: fixed;
+        top:140px;
+        right:336px;
+    }
+    .searchLine{
+        margin-bottom: 24px;
+        font-family: "Candara Light", sans-serif;
+        color: gray;    
+    }
+    
+    .search{
+        border: 2px;
+        border-color: darkgray;
+         border-radius: 24px;
+        border-style: solid;
+        margin: auto;
+        position: fixed;
+         width: 18%;
+        top: 120px;
+        right:300px;
+    }
+    .headermenu{
+        position: absolute;
+        top:18px;
+        right:10px;
+        font-size: 24px;
+        padding-bottom: 60px;
+}
+    .addButton{
+        position: fixed;
+        right: 72px;
+        width: 10%;
+        border: 0px;
+        background-color: white;
+    }
+    .addButton:active{
+        background-color: darkgray;
+    }
+    footer{
+        position: fixed;
+        bottom: 24px;
+        text-align: center;
+        right: 144px;
+         font-size: 12px;
+        z-index: -1;
+    }
+    main{
+        margin-top: 120px;
+        margin-left: 84px;
+        width: 50%;
+        z-index: 5;
+        background-color: white;
+    }
+    .post{
+        border-top: 20px;
+        border-width: 2px;
+        border-color: darkgray;
+        border-style: solid;
+        position: relative;
+        margin-bottom: 60px;
+        background-color: white;
+    }
+    header{
+        border-style: solid;
+        width: 100%;
+        border-color: darkgray;
+        position: fixed ;
+        background-color: white;
+        top: 0px;
+        left: 0px;
+        border-left: 0px;
+        border-top: 0px;
+        z-index: 10;
+        padding-bottom: 60px;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+    }
+    .logoutButton{
+        position: relative;
+        background-color: white;
+        border: 0px;
+        top: 4px;
+    }
+    .logoutButton:active{
+        background-color: darkgray;
+    }
+    .logout{
+        border-width: 0px; 
+        border-left: 2px;
+        padding: 2px;
+        border-style: solid;
+        border-left-color: darkgray;
+        padding-left: 12px;
+        margin-left: 12px;
+        position: relative;
+    }
+    .mobileMenu{
+        display: none;
+    }
+}
+@media screen and (max-device-width: 1529px){
+    .mobileMenu{
+        position: relative;
+        background-color: white;
+        border: 0px;
+        top: 0px;
+    }
+    .mobileMenu:active{
+        background-color: darkgray;
+    }
+    .headermenu{
+        position: absolute;
+        top:12px;
+        right:10px;
+        font-size: 24px;
+        padding-bottom: 60px;
+}
+    .searchForm{
+        display: none;
+    }
+    .searchLine{
+        display: none;    
+    }
+    .search{
+        display: none;
+    }
+    .addButton{
+        display: none;
+    }
+    footer{
+        display: none;
+    }
+    main{
+        margin: auto;
+        margin-top: 60px;
+        width: 100%;
+    
+    }
+    .post{
+        border-top: 20px;
+        border-width: 2px;
+        border-color: darkgray;
+        border-style: solid;
+        position: relative;
+        margin-bottom: 60px;
+    }
+        header{
+        border-style: solid;
+        width: 100%;
+        border-color: darkgray;
+        position: fixed ;
+        background-color: white;
+        top: 0px;
+        left: 0px;
+        border-left: 0px;
+        border-top: 0px;
+        z-index: 10;
+        padding-bottom: 60px;
+        background-image: url(images/mobileLogo.png);
+        background-repeat: no-repeat;
+        background-position:left 50%; 
+    }
+    .logoutButton{
+        display: none;
+    }
+    .logout{
+        display: none;
+    }
+    .username{
+        display: none;
+    }
+}
