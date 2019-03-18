@@ -1,0 +1,23 @@
+{
+  "name": "bsu-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kulesh0v/BSU-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kulesh0v/BSU-project/issues"
+  },
+  "homepage": "https://github.com/kulesh0v/BSU-project#readme",
+  "devDependencies": {
+    "eslint": "^5.15.2",
+    "eslint-plugin-react": "^7.12.4"
+  }
+}

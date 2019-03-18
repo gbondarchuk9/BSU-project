@@ -11,26 +11,26 @@ body {
     top: 4px;
 }
 
-.funcButton {
+.func-button {
     position: absolute;
     right: 4px;
     top: 10px;
-    border: 0px;
+    border: 0;
     background-color: white;
 }
 
-.funcButton:active {
+.func-button:active {
     background-color: darkgray;
 }
 
-.searchButton {
+.search-button {
     background-color: white;
-    border: 0px;
+    border: 0;
     position: absolute;
-    right: 0px;
+    right: 0;
 }
 
-.searchButton:active {
+.search-button:active {
     background-color: darkgray;
 }
 
@@ -38,11 +38,9 @@ body {
     position: absolute;
     margin: 8px 25px;
     font-size: 24px;
-    border: 0px;
     padding-bottom: 12px;
     padding-left: 6px;
-    border-style: solid;
-    border-color: darkgray;
+    border: 0 solid darkgray;
 }
 
 .photo {
@@ -53,49 +51,48 @@ body {
 }
 
 .description {
-    margin-left: 30px;
     font-size: 24px;
-    margin-bottom: 12px;
+    width: 80%;
+    margin: auto;
+}
+.tags{
+    font-size: 24px;
     width: 80%;
     margin: auto;
 }
 
-.likeButton {
+.like-button {
     position: absolute;
     right: 24px;
     text-align: center;
     font-size: 27px;
     line-height: 1;
-    border: 0px;
+    border: 0;
     background-color: white;
-    font-family: "Candara Light";
+    font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
 }
 
-.likeButton:active {
-    border: 2px;
-    border-style: solid;
+.like-button:active {
     padding: 6px;
-    border-color: darkgray;
+    border: 2px solid darkgray;
 }
 
-@media screen and (min-device-width: 1530px) {
-    .searchForm {
+@media screen and (min-width: 1530px) {
+    .search-form {
         position: fixed;
         top: 140px;
         right: 336px;
     }
 
-    .searchLine {
-        margin-bottom: 24px;
+    .search-line {
+        margin-bottom: 8px;
         font-family: "Candara Light", sans-serif;
         color: gray;
     }
 
     .search {
-        border: 2px;
-        border-color: darkgray;
         border-radius: 24px;
-        border-style: solid;
+        border: 2px solid darkgray;
         margin: auto;
         position: fixed;
         width: 18%;
@@ -103,7 +100,7 @@ body {
         right: 300px;
     }
 
-    .headermenu {
+    .header-menu {
         position: absolute;
         top: 18px;
         right: 10px;
@@ -111,15 +108,15 @@ body {
         padding-bottom: 60px;
     }
 
-    .addButton {
+    .add-button {
         position: fixed;
         right: 72px;
         width: 10%;
-        border: 0px;
+        border: 0;
         background-color: white;
     }
 
-    .addButton:active {
+    .add-button:active {
         background-color: darkgray;
     }
 
@@ -141,7 +138,6 @@ body {
     }
 
     .post {
-        border-top: 20px;
         border-width: 2px;
         border-color: darkgray;
         border-style: solid;
@@ -156,56 +152,70 @@ body {
         border-color: darkgray;
         position: fixed;
         background-color: white;
-        top: 0px;
-        left: 0px;
-        border-left: 0px;
-        border-top: 0px;
+        top: 0;
+        left: 0;
+        border-left: 0;
+        border-top: 0;
         z-index: 10;
         padding-bottom: 60px;
         background-image: url(images/logo.png);
         background-repeat: no-repeat;
     }
 
-    .logoutButton {
+    .logout-button {
         position: relative;
         background-color: white;
-        border: 0px;
+        border: 0;
         top: 4px;
     }
 
-    .logoutButton:active {
+    .logout-button:active {
         background-color: darkgray;
     }
 
     .logout {
-        border-width: 0px;
+        border-width: 0;
         border-left: 2px;
-        padding: 2px;
         border-style: solid;
         border-left-color: darkgray;
-        padding-left: 12px;
+        padding: 2px 2px 2px 12px;
         margin-left: 12px;
         position: relative;
     }
 
-    .mobileMenu {
+    .mobile-menu {
         display: none;
+    }
+    .search-author-icon {
+        margin-left: 30px;
+        margin-top: 24px;
+    }
+
+    .search-tags-icon {
+        margin-left: 30px;
+        margin-top: 24px;
+        margin-bottom: 60px;
+    }
+
+    .search-date-icon {
+        margin-left: 30px;
+        margin-top: 24px;
     }
 }
 
-@media screen and (max-device-width: 1529px) {
-    .mobileMenu {
+@media screen and (max-width: 1529px) {
+    .mobile-menu {
         position: relative;
         background-color: white;
-        border: 0px;
-        top: 0px;
+        border: 0;
+        top: 0;
     }
 
-    .mobileMenu:active {
+    .mobile-menu:active {
         background-color: darkgray;
     }
 
-    .headermenu {
+    .header-menu {
         position: absolute;
         top: 12px;
         right: 10px;
@@ -213,11 +223,11 @@ body {
         padding-bottom: 60px;
     }
 
-    .searchForm {
+    .search-form {
         display: none;
     }
 
-    .searchLine {
+    .search-line {
         display: none;
     }
 
@@ -225,9 +235,11 @@ body {
         display: none;
     }
 
-    .addButton {
+    .add-button {
         display: none;
     }
+
+
 
     footer {
         display: none;
@@ -241,7 +253,6 @@ body {
     }
 
     .post {
-        border-top: 20px;
         border-width: 2px;
         border-color: darkgray;
         border-style: solid;
@@ -255,10 +266,10 @@ body {
         border-color: darkgray;
         position: fixed;
         background-color: white;
-        top: 0px;
-        left: 0px;
-        border-left: 0px;
-        border-top: 0px;
+        top: 0;
+        left: 0;
+        border-left: 0;
+        border-top: 0;
         z-index: 10;
         padding-bottom: 60px;
         background-image: url(images/mobileLogo.png);
@@ -266,7 +277,7 @@ body {
         background-position: left 50%;
     }
 
-    .logoutButton {
+    .logout-button {
         display: none;
     }
 

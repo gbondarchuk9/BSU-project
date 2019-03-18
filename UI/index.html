@@ -2,88 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-    <div class="headermenu">
+    <div class="header-menu">
         <span class="username">Username</span>
-        <span class="logout">Log out <button class="logoutButton"><img src="images/logout.png"></button></span>
-        <button class="mobileMenu"><img src="images/mobileMenu.png" width="36px"></button>
+        <span class="logout">Log out <button class="logout-button"><img src="images/logout.png"></button></span>
+        <button class="mobile-menu"><img src="images/mobileMenu.png" width="36px"></button>
     </div>
 </header>
 <div class="search">
-    <img src="images/author.png" style="margin-left: 30px; margin-top: 24px;"><br/>
-    <img src="images/date.png" style="margin-left: 30px; margin-top: 24px;"><br/>
-    <img src="images/hashtags.png" style="margin-left: 30px; margin-top: 24px; margin-bottom: 60px;">
+    <img src="images/author.png" class ="search-author-icon"><br/>
+    <img src="images/date.png" class="search-date-icon"><br/>
+    <img src="images/tags.png" class="search-tags-icon">
 </div>
-<form class="searchForm">
-    <p><input maxlength="" class="searchLine" placeholder="Author"></p>
-    <p><input maxlength="10" placeholder="Date" class="searchLine"></p>
-    <p><input maxlength="" placeholder="Hashtags" type="text" class="searchLine" style="margin-bottom: 6px;"></p>
-    <button class="searchButton"><img src="images/search.png" alt="serach"></button>
+<form class="search-form">
+    <p><input maxlength="" placeholder="Author" class="search-line"></p>
+    <p><input maxlength="10" placeholder="From" class="search-line" style="margin-bottom: 0; padding-bottom: 0;"></p>
+    <p><input maxlength="10" placeholder="To" class="search-line"></p>
+    <p><input maxlength="" placeholder="Tags" type="text" class="search-line" style="margin-bottom: 2px;"></p>
+    <button class="search-button"><img src="images/search.png" alt="search"></button>
 </form>
-<button class="addButton"><img width="100%" src="images/add.png"></button>
+<button class="add-button"><img width="100%" src="images/add.png"></button>
 <main>
     <div class="post">
         <span class="author">catLover</span>
         <span class="date">20:15<br/>20.02.2019</span>
-        <button class="funcButton"><img src="images/func.png"></button>
-        <hr align   ="center" width="90%" size="2" color="darkgrey" style="margin-top: 46px"/>
+        <button class="func-button"><img src="images/func.png"></button>
+        <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 46px"/>
         <img src="images/example.jpg" class="photo">
         <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 12px"/>
         <div class="description">
-            I have a kitten!!!<br/>
-            #cats #kittens #cat #kittens #sleep #lovely<br>
+            I have a kitten!!!
+        </div>
+        <div class="tags">
+            #cats #kittens #cat #kittens #sleep #lovely
         </div>
         <div style="position: relative; margin-bottom: 96px;">
-            <button class="likeButton"><img src="images/heart.png"><br/> 200</button>
+            <button class="like-button"><img src="images/heart.png"><br/> 200</button>
         </div>
     </div>
     <div class="post">
         <span class="author">catLover</span>
         <span class="date">20:15<br/>20.02.2019</span>
-        <button class="funcButton"><img src="images/func.png"></button>
+        <button class="func-button"><img src="images/func.png"></button>
         <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 46px"/>
         <img src="images/example2.jpg" class="photo">
         <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 12px"/>
         <div class="description">
-            I have a kitten!!!<br/>
-            #cats #kittens #cat #kittens #sleep #lovely<br>
+            I have a kitten!!!
+        </div>
+        <div class="tags">
+            #cats #kittens #cat #kittens #sleep #lovely
         </div>
         <div style="position: relative; margin-bottom: 96px;">
-            <button class="likeButton"><img src="images/heart.png"><br/> 200</button>
+            <button class="like-button"><img src="images/heart.png"><br/> 200</button>
         </div>
     </div>
     <div class="post">
         <span class="author">catLover</span>
         <span class="date">20:15<br/>20.02.2019</span>
-        <button class="funcButton"><img src="images/func.png"></button>
+        <button class="func-button"><img src="images/func.png"></button>
         <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 46px"/>
         <img src="images/example3.jpg" class="photo">
         <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 12px"/>
         <div class="description">
-            I have a kitten!!!<br/>
-            #cats #kittens #cat #kittens #sleep #lovely<br>
+            I have a kitten!!!
+        </div>
+        <div class="tags">
+            #cats #kittens #cat #kittens #sleep #lovely
         </div>
         <div style="position: relative; margin-bottom: 96px;">
-            <button class="likeButton"><img src="images/heart.png"><br/> 200</button>
+            <button class="like-button"><img src="images/heart.png"><br/> 200</button>
         </div>
     </div>
     <div class="post">
         <span class="author">catLover</span>
         <span class="date">20:15<br/>20.02.2019</span>
-        <button class="funcButton"><img src="images/func.png"></button>
+        <button class="func-button"><img src="images/func.png"></button>
         <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 46px"/>
         <img src="images/example4.jpg" class="photo">
         <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 12px"/>
         <div class="description">
-            I have a kitten!!!<br/>
-            #cats #kittens #cat #kittens #sleep #lovely<br>
+            I have a kitten!!!
+        </div>
+        <div class="tags">
+            #cats #kittens #cat #kittens #sleep #lovely
         </div>
         <div style="position: relative; margin-bottom: 96px;">
-            <button class="likeButton"><img src="images/heart.png"><br/> 200</button>
+            <button class="like-button"><img src="images/heart.png"><br/> 200</button>
         </div>
     </div>
 </main>
