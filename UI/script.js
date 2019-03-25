@@ -271,4 +271,17 @@ let main = (function () {
         }
     }
 }());
+console.log('logIn(\'OldFag\')');
 main.logIn('OldFag');
+console.log('({description: \'Hello, 1\',\n' +
+    '    photoLink: \'images/example1.jpg\',\n' +
+    '    tags: [\'Love\', \'Sleep\'],})');
+main.addPhotoPost({description: 'Hello, 1',
+    photoLink: 'images/example1.jpg',
+    tags: ['Love', 'Sleep'],});
+console.log('editPhotoPost(\'19\',{description:"Hi Guys", tags:["Js","JavaScript"]})');
+main.editPhotoPost('19',{description:"Hi Guys", tags:["Js","JavaScript"]});
+console.log('likePhotoPost(\'21\')');
+main.likePhotoPost('21');
+console.log('removePhotoPost(\'17\')');
+main.removePhotoPost('17');
