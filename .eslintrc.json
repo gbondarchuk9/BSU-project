@@ -18,6 +18,8 @@
         "react"
     ],
     "rules": {
-        "no-console": "off"
+        "no-console": "off",
+        "no-undef": "warn",
+        "no-unused-vars": "warn"
     }
 }
