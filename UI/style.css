@@ -6,9 +6,10 @@ body {
 
 .date {
     position: absolute;
-    font-size: 15px;
+    font-size: 17px;
     right: 48px;
-    top: 4px;
+    top: 2px;
+    font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
 }
 
 .func-button {
@@ -20,7 +21,7 @@ body {
 }
 
 .func-button:active {
-    background-color: darkgray;
+    background-color: gray;
 }
 
 .search-button {
@@ -55,7 +56,8 @@ body {
     width: 80%;
     margin: auto;
 }
-.tags{
+
+.tags {
     font-size: 24px;
     width: 80%;
     margin: auto;
@@ -63,13 +65,20 @@ body {
 
 .like-button {
     position: absolute;
-    right: 24px;
+    right: 27px;
     text-align: center;
-    font-size: 27px;
+    font-size: 23px;
     line-height: 1;
     border: 0;
     background-color: white;
     font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
+    color: gray;
+}
+
+.like-heart {
+    display: block;
+    padding-bottom: 2px;
+    margin: auto;
 }
 
 .like-button:active {
@@ -102,7 +111,7 @@ body {
 
     .header-menu {
         position: absolute;
-        top: 18px;
+        top: 12px;
         right: 10px;
         font-size: 24px;
         padding-bottom: 60px;
@@ -186,6 +195,7 @@ body {
     .mobile-menu {
         display: none;
     }
+
     .search-author-icon {
         margin-left: 30px;
         margin-top: 24px;
@@ -238,7 +248,6 @@ body {
     .add-button {
         display: none;
     }
-
 
 
     footer {
