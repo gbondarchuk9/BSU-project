@@ -1,6 +1,6 @@
 class PhotoPostsList {
     constructor(photoPosts) {
-        this._photoPosts = photoPosts.filter(item => PhotoPostsList.validate(item));
+        this._photoPosts = photoPosts;
     }
 
     static _compareDates(a, b) {
@@ -13,24 +13,26 @@ class PhotoPostsList {
             return this._photoPosts.slice(skip, skip + top).sort(PhotoPostsList._compareDates);
         }
         let result = this._photoPosts;
-        if (filterConfig.author !== undefined) {
+        if (filterConfig.author !== undefined && filterConfig.author !== '') {
             result = result.filter(function (a) {
                 return a.author === filterConfig.author;
             });
         }
-        if (filterConfig.dateUpLim instanceof Date) {
+        if (filterConfig.dateUpLim instanceof Date && filterConfig.dateUpLim != 'Invalid Date') {
             result = result.filter(function (a) {
                 return a.createdAt <= filterConfig.dateUpLim;
             });
         }
-        if (filterConfig.dateDownLim instanceof Date) {
+        if (filterConfig.dateDownLim instanceof Date && filterConfig.dateDownLim != 'Invalid Date') {
             result = result.filter(function (a) {
                 return a.createdAt >= filterConfig.dateDownLim;
             });
         }
-        if (filterConfig.tags !== undefined) {
+        if (filterConfig.tags !== undefined && filterConfig.tags !== '') {
+            let tagsArr = filterConfig.tags.split('#');
+            tagsArr.splice(0, 1);
             result = result.filter(function (a) {
-                return filterConfig.tags.every(function (t) {
+                return tagsArr.every(function (t) {
                     for (let item of a.tags) {
                         if (item.toLocaleLowerCase() === t.toLocaleLowerCase()) {
                             return true;
@@ -90,7 +92,6 @@ class PhotoPostsList {
             this._checkPhotoLink(photoPost.photoLink) &&
             this._checkDescription(photoPost.description) &&
             this._checkAuthor(photoPost.author) &&
-            this._checkDate(photoPost.createdAt) &&
             this._checkId(photoPost.id) &&
             this._checkTags(photoPost.tags);
     }
@@ -108,8 +109,8 @@ class PhotoPostsList {
 
     add(photoPost) {
         let id = 0;
-        for(let item of this._photoPosts){
-            if(parseInt(item.id) > id){
+        for (let item of this._photoPosts) {
+            if (parseInt(item.id) > id) {
                 id = parseInt(item.id);
             }
         }
@@ -117,6 +118,9 @@ class PhotoPostsList {
         photoPost.id += "";
         photoPost.likes = [];
         photoPost.createdAt = new Date();
+        let tagsArr = photoPost.tags.split('#');
+        tagsArr.splice(0, 1);
+        photoPost.tags = tagsArr;
         if (PhotoPostsList.validate(photoPost)) {
             this._photoPosts.push(photoPost);
             return true;
@@ -173,146 +177,12 @@ class PhotoPostsList {
         this._photoPosts.splice(0, this._photoPosts.length);
     }
 
-}
+    getAuthorList() {
+        let authorList = new Set();
+        for (let item of this._photoPosts) {
+            authorList.add(item.author);
+        }
+        return authorList;
+    }
 
-// console.log('photoPostsList.get(\'1\')');
-// console.log(photoPostsList.get('1'));
-//
-// console.log('photoPostsList.get(\'sdadsasdadsa\')');
-// console.log(photoPostsList.get('sdadsasdadsa'));
-//
-// console.log('photoPostsList.get(\'123123\')');
-// console.log(photoPostsList.get('123123'));
-//
-// console.log('photoPostsList.get(\'{a:\'fdf\'}}\')');
-// console.log(photoPostsList.get({a: 'fdf'}));
-//
-// console.log('photoPostsList.getPage()');
-// console.log(photoPostsList.getPage());
-//
-// console.log('photoPostsList.getPage(10, 10)');
-// console.log(photoPostsList.getPage(10, 10));
-//
-// console.log('photoPostsList.getPage(0, 10, {author: \'Witcher\'})');
-// console.log(photoPostsList.getPage(0, 10, {author: 'Witcher'}))
-//
-// console.log('photoPostsList.getPage(0, 10, {author: \'Witcher\', tags: [\'Love\']})');
-// console.log(photoPostsList.getPage(0, 10, {author: 'Witcher', tags: ['Love']}));
-//
-// console.log('photoPostsList.getPage(0, 10, {author: \'Witcher\', tags: [\'Love\', \'caTS\']})');
-// console.log(photoPostsList.getPage(0, 10, {author: 'Witcher', tags: ['Love', 'caTS']}));
-//
-// console.log('photoPostsList.add({description: \'Hello, 16\', photoLink: \'images/example16\', tags:[\'JS\']})');
-// console.log(photoPostsList.add({description: 'Hello, 16', photoLink: 'images/example16', tags: ['JS']}));
-//
-// console.log('photoPostsList.add({description: \'Hello, 16\',author: \'WindowsUser\', tags:[\'JS\']})');
-// console.log(photoPostsList.add({description: 'Hello, 16', author: 'WindowsUser', tags: ['JS']}));
-//
-// console.log('photoPostsList.add({description: \'Hello, 16\',author: \'WindowsUser\',photoLink: \'images/example16\', tags:[\'JS\']})');
-// console.log(photoPostsList.add({
-//     description: 'Hello, 16',
-//     author: 'WindowsUser',
-//     photoLink: 'images/example16',
-//     tags: ['JS']
-// }));
-//
-// console.log('photoPostsList.get(21)');
-// console.log(photoPostsList.get('21'));
-//
-// console.log('photoPostsList.remove(\'21\')');
-// console.log(photoPostsList.remove('21'));
-//
-// console.log('photoPostsList.getPage(0,20)');
-// console.log(photoPostsList.getPage(0, 20));
-//
-// console.log('photoPostsList.edit(\'1\',{description:{name:\'Vlad\'}})');
-// console.log(photoPostsList.edit('1', {description: {name: 'Vlad'}}));
-//
-// console.log('photoPostsList.edit(\'1\',{photoLink: [\'Hello\', \'Andrey\']})');
-// console.log(photoPostsList.edit('1', {photoLink: ['Hello', 'Andrey']}));
-//
-// console.log('photoPostsList.edit(\'1\',{tags: {}})');
-// console.log(photoPostsList.edit('1', {tags: {}}));
-//
-// console.log('photoPostsList.edit(\'1\',{description: \'Hello JS\' ,tags:[\'Hello\', \'JS\']})');
-// console.log(photoPostsList.edit('1', {description: 'Hello JS', tags: ['Hello', 'JS']}));
-//
-// console.log('photoPostsList.get(1)');
-// console.log(photoPostsList.get('1'));
-//
-// console.log('photoPostsList.edit(\'1\',{photoLink: \'images/Hello_JS.jpg\'})');
-// console.log(photoPostsList.edit('1', {photoLink: 'images/Hello_JS.jpg'}));
-//
-// console.log('photoPostsList.get(1)');
-// console.log(photoPostsList.get('1'));
-//
-// console.log('photoPostsList.remove(\'1\')');
-// console.log(photoPostsList.remove('1'));
-//
-// console.log('photoPostsList.remove(\'1\')');
-// console.log(photoPostsList.remove('1'));
-//
-// console.log('photoPostsList.remove(\'123\')');
-// console.log(photoPostsList.remove('123'));
-//
-// console.log('photoPostsList.remove(\'JS\')');
-// console.log(photoPostsList.remove('JS'));
-//
-// console.log('photoPostsList.addAll([{\n' +
-//     '        id: \'1\',\n' +
-//     '        description: \'Hello, 1\',\n' +
-//     '        createdAt: new Date(\'2018-01-23T23:00:00\'),\n' +
-//     '        author: \'NewFag\',\n' +
-//     '        photoLink: \'images/example1\',\n' +
-//     '        tags: [\'Love\', \'Sleep\'],\n' +
-//     '        likes: [\'NewFag\', "CatLover"],\n' +
-//     '    },\n' +
-//     '    {\n' +
-//     '        id: \'2\',\n' +
-//     '        description: \'Hello, 2\',\n' +
-//     '        createdAt: new Date(\'2018-02-23T23:00:00\'),\n' +
-//     '        author: \'OldFag\',\n' +
-//     '        photoLink: \'images/example2\',\n' +
-//     '        tags: [\'Hardcore\', \'Olds\', \'Like\'],\n' +
-//     '        likes: [\'OldFag\', \'NewFag\', \'SonOfMom\'],\n' +
-//     '    },\n' +
-//     '    {\n' +
-//     '        id: \'3\',\n' +
-//     '        description: \'Hello, 3\',\n' +
-//     '        createdAt: new Date(\'2018-03-23T23:00:00\'),\n' +
-//     '        author: \'CatLover\',\n' +
-//     '        photoLink: \'images/example3\',\n' +
-//     '        tags: [\'Cats\', \'Sleep\', \'Like\'],\n' +
-//     '        likes: [\'CatLover\', \'Pretty_Kitty\'],\n' +
-//     '    }])');
-// console.log(photoPostsList.addAll([{
-//     id: '1',
-//     description: 'Hello, 1',
-//     createdAt: new Date('2018-01-23T23:00:00'),
-//     author: 'NewFag',
-//     photoLink: 'images/example1',
-//     tags: ['Love', 'Sleep'],
-//     likes: ['NewFag', "CatLover"],
-// },
-//     {
-//         id: '2',
-//         description: 'Hello, 2',
-//         createdAt: new Date('2018-02-23T23:00:00'),
-//         author: 'OldFag',
-//         tags: ['Hardcore', 'Olds', 'Like'],
-//         likes: ['OldFag', 'NewFag', 'SonOfMom'],
-//     },
-//     {
-//         id: '3',
-//         description: 'Hello, 3',
-//         createdAt: new Date('2018-03-23T23:00:00'),
-//         photoLink: 'images/example3',
-//         tags: ['Cats', 'Sleep', 'Like'],
-//         likes: ['CatLover', 'Pretty_Kitty'],
-//     }]));
-//
-// console.log('photoPostList.clear()');
-// photoPostsList.clear();
-//
-// console.log('photoPostList.getPage()');
-// console.log(photoPostsList.getPage());
+}

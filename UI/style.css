@@ -7,20 +7,34 @@ body {
 .date {
     position: absolute;
     font-size: 17px;
-    right: 48px;
+    right: 80px;
     top: 2px;
     font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
 }
 
-.func-button {
+.delete-button {
+    display: none;
     position: absolute;
-    right: 4px;
-    top: 10px;
+    right: 40px;
+    top: 2px;
     border: 0;
-    background-color: white;
+    background-color: transparent;
 }
 
-.func-button:active {
+.delete-button :active {
+    background-color: gray;
+}
+
+.edit-button {
+    display: none;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    border: 0;
+    background-color: transparent;
+}
+
+.edit-button:active {
     background-color: gray;
 }
 
@@ -84,6 +98,219 @@ body {
 .like-button:active {
     padding: 6px;
     border: 2px solid darkgray;
+}
+
+.delete-window {
+    display: none;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(156, 156, 156, 0.8);
+    height: 100%;
+    z-index: 15;
+    top: 0;
+    left: 0;
+}
+
+.delete-window-content {
+    width: 90px;
+    position: relative;
+    display: block;
+    top: 25%;
+    margin: auto;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 3%;
+    padding: 24px;
+    background-color: white;
+}
+
+.delete-window-form {
+    position: relative;
+}
+.yes-delete-button {
+    border-width: 2px;
+    color: gray;
+    background-color: white;
+    font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
+}
+.yes-delete-button:active {
+    background-color: darkseagreen;
+}
+.no-delete-button {
+    position: relative;
+    border-width: 2px;
+    color: gray;
+    background-color: white;
+    font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
+    left: 18px;
+}
+.no-delete-button:active {
+    background-color: indianred;
+}
+
+.login-window {
+    display: none;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(156, 156, 156, 0.8);
+    height: 100%;
+    z-index: 15;
+    top: 0;
+    left: 0;
+}
+
+.login-window-content {
+    width: 160px;
+    position: relative;
+    display: block;
+    top: 25%;
+    margin: auto;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 3%;
+    padding: 24px;
+    background-color: white;
+}
+
+.login-window-form {
+    position: relative;
+}
+
+.add-window {
+    display: none;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(156, 156, 156, 0.8);
+    height: 100%;
+    z-index: 15;
+    top: 0;
+    left: 0;
+}
+
+.add-window-content {
+    width: 40%;
+    position: absolute;
+    display: block;
+    top: 15%;
+    left: 30%;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 3%;
+    padding: 24px;
+    background-color: white;
+
+}
+
+.edit-window-form {
+    position: relative;
+}
+
+.edit-window {
+    display: none;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(156, 156, 156, 0.8);
+    height: 100%;
+    z-index: 15;
+    top: 0;
+    left: 0;
+}
+
+.edit-window-content {
+    width: 40%;
+    position: absolute;
+    display: block;
+    top: 15%;
+    left: 30%;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 3%;
+    padding: 24px;
+    background-color: white;
+
+}
+
+.add-window-form {
+    position: relative;
+}
+
+.add-window-line {
+    width: 90%;
+    font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
+}
+
+.close-add-window-button {
+    position: relative;
+    left: 90%;
+    border: 0;
+    background-color: white;
+}
+
+.close-edit-window-button {
+    position: relative;
+    left: 90%;
+    border: 0;
+    background-color: white;
+}
+
+.apply-add-window-button {
+    position: relative;
+    left: 90%;
+    border: 0;
+    background-color: white;
+}
+
+.apply-edit-window-button {
+    position: relative;
+    left: 90%;
+    border: 0;
+    background-color: white;
+}
+
+.post-author {
+    font-size: 33px;
+    margin-left: 15px;
+}
+
+.close-add-window-button :active {
+    background-color: gray;
+}
+
+.close-login-window-button {
+    position: relative;
+    left: 120px;
+    border: 0;
+    background-color: white;
+}
+
+.close-login-window-button :active {
+    background-color: gray;
+}
+
+.login-button {
+    display: flex;
+    margin: auto;
+    background-color: white;
+    border-color: gray;
+    border-radius: 10%;
+    font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
+}
+
+.login-button:active {
+    background-color: gray;
+}
+.load-more-button {
+    display: flex;
+    margin: auto;
+    border-width: 2px;
+    color: gray;
+    font-size: 30px;
+    background-color: white;
+    border-radius: 6px;
+    font-family: "Candara Light", "Comic Sans MS", "Courier New", serif;
+}
+.load-more-button:active {
+    background-color: gray;
 }
 
 @media screen and (min-width: 1530px) {
@@ -230,7 +457,6 @@ body {
         top: 12px;
         right: 10px;
         font-size: 24px;
-        padding-bottom: 60px;
     }
 
     .search-form {
@@ -294,7 +520,54 @@ body {
         display: none;
     }
 
+    .login {
+        display: none;
+    }
+
     .username {
         display: none;
     }
+}
+
+@media screen and (max-width: 1024px) {
+    .close-add-window-button {
+        left: 85%;
+    }
+
+    .apply-add-window-button {
+        left: 85%;
+    }
+    .close-edit-window-button {
+        left: 85%;
+    }
+
+    .apply-edit-window-button {
+        left: 85%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .close-add-window-button {
+        left: 70%;
+    }
+
+    .apply-add-window-button {
+        left: 70%;
+    }
+
+    .post-author {
+        display: none;
+    }
+
+    .post-author-image {
+        display: none;
+    }
+    .close-edit-window-button {
+        left: 70%;
+    }
+
+    .apply-edit-window-button {
+        left: 70%;
+    }
+
 }

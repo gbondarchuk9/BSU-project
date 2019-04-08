@@ -7,6 +7,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="add-window">
+    <div class="add-window-content">
+        <form class="add-window-form">
+            <button type="button" class="close-add-window-button"><img src="images/close.png"></button>
+            <p class="post-author-image"><img src="images/author.png"><span class="post-author">Author</span></p>
+            <input name="photoLink" class="add-window-line" placeholder="photo link" type="text">
+            <label>
+                <p><textarea name="description" class="add-window-line" placeholder="description" maxlength="200"
+                             rows="4"></textarea></p>
+                <p><textarea name="tags" class="add-window-line" placeholder="#tag1#tag2" maxlength="200"
+                             rows="4"></textarea></p>
+            </label>
+            <button type="button" class="apply-add-window-button"><img src="images/apply.png"></button>
+        </form>
+    </div>
+</div>
+<div class="login-window">
+    <div class="login-window-content">
+        <form class="login-window-form">
+            <button type="button" class="close-login-window-button"><img src="images/close.png"></button>
+            <p><input type="text" name="login" maxlength="30" placeholder="Login"></p>
+            <p><input type="password" name="password" maxlength="30" placeholder="Password"></p>
+            <button type="button" class="login-button">Log in</button>
+        </form>
+    </div>
+</div>
+<div class="delete-window">
+    <div class="delete-window-content">
+        <form class="delete-window-form">
+            <p>Are you sure?</p>
+            <button type="button" class="yes-delete-button">Yes</button>
+            <button type="button" class="no-delete-button">No</button>
+        </form>
+    </div>
+</div>
+<div class="edit-window">
+    <div class="edit-window-content">
+        <form class="edit-window-form">
+            <button type="button" class="close-edit-window-button"><img src="images/close.png"></button>
+            <p class="post-author-image"><img src="images/author.png"><span class="post-author">Author</span></p>
+            <input name="photoLink" class="add-window-line" placeholder="photo link" type="text">
+            <label>
+                <p><textarea name="description" class="add-window-line" placeholder="description" maxlength="200"
+                             rows="4"></textarea></p>
+                <p><textarea name="tags" class="add-window-line" placeholder="#tag1#tag2" maxlength="200"
+                             rows="4"></textarea></p>
+            </label>
+            <button type="button" class="apply-edit-window-button"><img src="images/apply.png"></button>
+        </form>
+    </div>
+</div>
 <template id="user-header-menu-template">
     <div class="header-menu">
         <span class="username">Username</span>
@@ -14,12 +65,22 @@
         <button class="mobile-menu"><img src="images/mobileMenu.png" width="36px"></button>
     </div>
 </template>
-<template id ="guest-header-menu-template">
+<template id="guest-header-menu-template">
     <div class="header-menu">
         <span class="username" style="display: none"></span>
-        <span class="logout" style="border-left: 0;">Log in <button class="logout-button"><img src="images/author.png"></button></span>
+        <span class="login" style="border-left: 0;">
+            Log in
+            <button class="logout-button">
+             <img src="images/author.png">
+            </button>
+        </span>
         <button class="mobile-menu"><img src="images/mobileMenu.png" width="36px"></button>
     </div>
+</template>
+<template id="load-more-button-template">
+    <button class="load-more-button">
+        Load more
+    </button>
 </template>
 <header>
 </header>
@@ -29,20 +90,24 @@
     <img src="images/tags.png" class="search-tags-icon">
 </div>
 <form class="search-form">
-    <p><input maxlength="" placeholder="Author" class="search-line"></p>
-    <p><input maxlength="10" placeholder="From" class="search-line" style="margin-bottom: 0; padding-bottom: 0;"></p>
-    <p><input maxlength="10" placeholder="To" class="search-line"></p>
-    <p><input maxlength="" placeholder="Tags" type="text" class="search-line" style="margin-bottom: 2px;"></p>
-    <button class="search-button"><img src="images/search.png" alt="search"></button>
+    <p><input list="search-line-author" maxlength="" name="author" placeholder="Author" class="search-line">
+        <datalist id="search-line-author"></datalist>
+    </p>
+    <p><input maxlength="10" name="from" placeholder="From" class="search-line"
+              style="margin-bottom: 0; padding-bottom: 0;"></p>
+    <p><input maxlength="10" name="to" placeholder="To" class="search-line"></p>
+    <p><input maxlength="" name="tags" placeholder="Tags" type="text" class="search-line" style="margin-bottom: 2px;">
+    </p>
+    <button type="button" class="search-button" id="search-button">
+        <img src="images/search.png" alt="search"></button>
 </form>
 <button class="add-button"><img width="100%" src="images/add.png"></button>
 <template id="post-template">
     <div class="post">
         <span class="author">author</span>
         <span class="date">hh:mm<br/>dd:mm:yyyy</span>
-        <button class="func-button">
-            <img src="images/func.png">
-        </button>
+        <button class="edit-button"><img src="images/edit.png"></button>
+        <button class="delete-button"><img src="images/delete.png"></button>
         <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 46px"/>
         <img src="" class="photo">
         <hr align="center" width="90%" size="2" color="darkgrey" style="margin-top: 12px"/>
