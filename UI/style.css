@@ -345,6 +345,7 @@ body {
     }
 
     .add-button {
+        display: none;
         position: fixed;
         right: 72px;
         width: 10%;

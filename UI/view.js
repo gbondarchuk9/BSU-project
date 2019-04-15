@@ -142,7 +142,7 @@ class View {
 
     static showAddButton() {
         let button = document.getElementsByClassName('add-button')[0];
-        button.setAttribute('style', 'display: relative');
+        button.setAttribute('style', 'display: block');
     }
 
     static hideAddButton() {
@@ -263,10 +263,11 @@ class View {
         photoPost.tags = tagsArr;
         return photoPost;
     }
-    static showLoadMoreButton(){
+
+    static showLoadMoreButton() {
         let tmpl = document.querySelector('#load-more-button-template');
         let buttonNode = tmpl.content.cloneNode(true);
         document.getElementsByTagName('main')[0].appendChild(buttonNode);
-        document.getElementsByClassName('load-more-button')[0].addEventListener('click',main.loadMore);
+        document.getElementsByClassName('load-more-button')[0].addEventListener('click', main.loadMore);
     }
 }
