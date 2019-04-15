@@ -7,6 +7,15 @@ let main = (function () {
     let userName = '';
     let lastFilterConfig;
     let pageNumber = 1;
+    let showUserPage = function () {
+        View.showUserHeader(userName);
+        View.showAddButton();
+        document.getElementsByClassName('add-button')[0].addEventListener('click', View.showAddWindow);
+        document.getElementsByClassName('logout-button')[0].addEventListener('click', main.logOut);
+        View.setPostAuthor(userName);
+        main.showPhotoPosts(lastFilterConfig);
+        main.save();
+    };
     return {
         getPhotoPost(id) {
             return photoPostsList.get(id);
@@ -80,23 +89,17 @@ let main = (function () {
                 main.save();
             }
         },
-        logIn() {
-            let login = View.getLogin();
+        logIn(login) {
+            login = View.getLogin();
             if (login !== '') {
                 userName = login;
                 View.closeLogInWindow();
-                View.showUserHeader(userName);
-                View.showAddButton();
-                document.getElementsByClassName('add-button')[0].addEventListener('click', View.showAddWindow);
-                document.getElementsByClassName('logout-button')[0].addEventListener('click', main.logOut);
-                View.setPostAuthor(userName);
-                main.showPhotoPosts(lastFilterConfig);
-                return true;
+                showUserPage();
             }
-            return false;
         },
         logOut() {
             userName = '';
+            main.save();
             View.showGuestHeader();
             View.hideAddButton();
             main.showPhotoPosts(lastFilterConfig);
@@ -108,6 +111,7 @@ let main = (function () {
         save() {
             localStorage.removeItem('pPL');
             localStorage.setItem('pPL', JSON.stringify(photoPostsList._photoPosts));
+            localStorage.setItem('userName', userName);
         },
         restore() {
             let pPL = JSON.parse(localStorage.getItem('pPL'));
@@ -273,7 +277,7 @@ let main = (function () {
                         author: 'CatLover',
                         photoLink: 'images/example18.jpg',
                         tags: ['Kitten', 'Kittens', 'Cats'],
-                        likes: [''],
+                        likes: [],
                     },
                     {
                         id: '19',
@@ -300,15 +304,18 @@ let main = (function () {
                 pPL.forEach(item => item.createdAt = new Date(item.createdAt));
                 photoPostsList = new PhotoPostsList(pPL);
             }
-
+            userName = localStorage.getItem('userName');
         },
         start() {
             main.restore();
             View.showAuthorHint(photoPostsList.getAuthorList());
             document.getElementsByClassName('search-button')[0].addEventListener('click', main.showPhotoPosts);
-            main.logOut();
+            if (userName === '') {
+                main.logOut();
+            } else {
+                showUserPage();
+            }
         },
-
     }
 }());
 main.start();
